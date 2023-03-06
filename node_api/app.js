@@ -25,8 +25,10 @@ const router = require('./router/user');
 app.use('/api', router)
 //导入获取用户信息路由模块
 const userInfoRouter = require('./router/userInfo');
-
 app.use('/my', userInfoRouter);
+//导入文章类型相关路由
+const articleRouter = require('./router/article');
+app.use('/my', articleRouter)
 //定义全局错误中间件
 app.use((err, req, res, next) => {
     if (err instanceof joi.ValidationError) res.sendc(err);  //校验失败错误
